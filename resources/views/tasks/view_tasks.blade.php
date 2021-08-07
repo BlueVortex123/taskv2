@@ -20,6 +20,9 @@
                                 <div class="text-left">
                                     <a href="{{ route('tasks.add') }} " class="btn btn-primary " style="margin-bottom: 25px; margin-left: 20px">Add Task</a>
                             </div>
+                        
+
+
                             <thead>
                                 <tr>
                                     <th width="5%">Serial Number</th>
@@ -45,7 +48,7 @@
                                     </td>
                                     <td>{{ date('d-m-Y', strtotime($task->deadline)) }}</td>
                                     <td>
-									<a href="" class="btn btn-info">Edit</a>
+									<a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-info">Edit</a>
 									<a href="" class="btn btn-danger">Delete</a>
 								</td>
                                 

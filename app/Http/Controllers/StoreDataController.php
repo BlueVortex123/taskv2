@@ -41,5 +41,45 @@ class StoreDataController extends Controller
         return view('tasks.add_tasks', $data);
     }
 
+    public function StoreTasks(Request $request)
+    {
+        $validateData = $request->validate([
+            'deadline' => 'required',
+        ]);
+        $task = new Task();
+        $task->user_id = $request->user_id;
+        // $task->status = isset($request->status)? 0 : 1;
+        $task->status = $request->input('status') ? true : false;
+
+        $task->deadline = $request->deadline;
+        $task->save();
+
+        return redirect()->route('tasks.view');
+    }
+
+    public function EditTasks($id)
+    {
+        $data['task'] = Task::find($id);
+        $data['editUser'] = Task::with('users')->where('id', $id)->get();
+        $data['users'] = User::all();
+
+        // dd($data);
+        return view('tasks.edit_tasks', $data);
+    }
+
+    public function UpdateTasks(Request $request, $id)
+    {
+
+        $task = Task::find($id);
+        $task->user_id = $request->user_id;
+        // $task->status = isset($request->status)? 0 : 1;
+
+        $task->status = $request->input('status') ? true : false;
+        $task->deadline = $request->deadline;
+        $task->save();
+
+        return redirect()->route('tasks.view');
+    }
+
    
 }

@@ -10,7 +10,7 @@
                         <h3>Task Page</h3><br>
                         <a href="{{ route('tasks.view') }}" style="float: right;" class="btn btn-rounded btn-success mb-5">View Task</a>
                     </div>
-                <form >
+                <form method="post" action="{{ route('tasks.store') }}" >
                     @csrf
                     <div class="row">
                         <div class="col-12">

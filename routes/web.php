@@ -24,3 +24,6 @@ Route::post('/users/store', [StoreDataController::class, 'StoreUser'])->name('us
 
 Route::get('/tasks/view', [StoreDataController::class, 'ViewTasks'])->name('tasks.view');
 Route::get('/tasks/add', [StoreDataController::class, 'AddTasks'])->name('tasks.add');
+Route::post('/tasks/store', [StoreDataController::class, 'StoreTasks'])->name('tasks.store');
+Route::get('/tasks/edit/{id}', [StoreDataController::class, 'EditTasks'])->name('tasks.edit');
+Route::post('/tasks/update/{id}', [StoreDataController::class, 'UpdateTasks'])->name('tasks.update');
