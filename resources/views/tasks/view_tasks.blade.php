@@ -49,7 +49,7 @@
                                     <td>{{ date('d-m-Y', strtotime($task->deadline)) }}</td>
                                     <td>
 									<a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-info">Edit</a>
-									<a href="" class="btn btn-danger">Delete</a>
+									<a href="{{ route('tasks.delete', $task->id) }}" class="btn btn-danger">Delete</a>
 								</td>
                                 
                                 </tr>

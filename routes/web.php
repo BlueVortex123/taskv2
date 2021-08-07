@@ -27,3 +27,4 @@ Route::get('/tasks/add', [StoreDataController::class, 'AddTasks'])->name('tasks.
 Route::post('/tasks/store', [StoreDataController::class, 'StoreTasks'])->name('tasks.store');
 Route::get('/tasks/edit/{id}', [StoreDataController::class, 'EditTasks'])->name('tasks.edit');
 Route::post('/tasks/update/{id}', [StoreDataController::class, 'UpdateTasks'])->name('tasks.update');
+Route::get('/tasks/delete/{id}', [StoreDataController::class, 'DeleteTasks'])->name('tasks.delete');

@@ -81,5 +81,13 @@ class StoreDataController extends Controller
         return redirect()->route('tasks.view');
     }
 
+    public function DeleteTasks($id)
+    {
+        $task = Task::find($id);
+        $task->delete();
+
+        return redirect()->route('tasks.view');    
+    }
+
    
 }
