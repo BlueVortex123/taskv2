@@ -24,7 +24,22 @@ class StoreDataController extends Controller
         $user->name = $request->name;
         $user->save();
 
-        return redirect()->route('users.add');
+        return redirect()->route('tasks.view');
 
     }
+
+    public function ViewTasks()
+    {
+        $data['tasks'] = Task::all();
+        $data['users'] = User::all();
+        return view('tasks.view_tasks',$data);
+    }
+
+    public function AddTasks()
+    {
+        $data['users'] = User::all();
+        return view('tasks.add_tasks', $data);
+    }
+
+   
 }

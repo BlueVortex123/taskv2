@@ -20,3 +20,7 @@ Route::get('/', function () {
 });
 Route::get('/users/add', [StoreDataController::class, 'AddUser'])->name('users.add');
 Route::post('/users/store', [StoreDataController::class, 'StoreUser'])->name('user.store');
+
+
+Route::get('/tasks/view', [StoreDataController::class, 'ViewTasks'])->name('tasks.view');
+Route::get('/tasks/add', [StoreDataController::class, 'AddTasks'])->name('tasks.add');

@@ -13,7 +13,7 @@
                     @csrf
                     <div class="row"> 
                         <div class="col-md-12">
-                        <a href=""  class="btn btn-rounded btn-success mb-5">View Task</a>
+                        <a href="{{ route('tasks.view') }}"  class="btn btn-rounded btn-success mb-5">View Task</a>
                         <div class="form-group">
                                     <h5> Name <span class="text-danger">*</span></h5>
                                     <div class="controls">
