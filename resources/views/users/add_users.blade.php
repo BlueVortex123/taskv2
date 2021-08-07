@@ -9,7 +9,7 @@
                     <div class="row">
                         <h3>User Add Page</h3><br>
                     </div>
-                <form action>
+                <form action="{{ route('user.store') }}" method="post">
                     @csrf
                     <div class="row"> 
                         <div class="col-md-12">

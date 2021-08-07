@@ -13,4 +13,18 @@ class StoreDataController extends Controller
     {
         return view('users.add_users');
     }
+
+    public function StoreUser(Request $request)
+    {
+        $validateData = $request->validate([
+            'name' => 'required',
+        ]);
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->save();
+
+        return redirect()->route('users.add');
+
+    }
 }

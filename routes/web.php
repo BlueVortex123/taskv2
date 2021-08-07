@@ -19,3 +19,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/users/add', [StoreDataController::class, 'AddUser'])->name('users.add');
+Route::post('/users/store', [StoreDataController::class, 'StoreUser'])->name('user.store');
