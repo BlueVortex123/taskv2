@@ -12,7 +12,6 @@
                     </div>
                 <form method="post" action="{{ route('tasks.update', $editData->id) }}" >
                     @csrf
-
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">

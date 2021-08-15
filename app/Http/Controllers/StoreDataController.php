@@ -59,11 +59,10 @@ class StoreDataController extends Controller
 
     public function EditTasks($id)
     {
-        // $data['task'] = Task::find($id);
+        $data['editData'] = Task::with(['users'])->where('id', $id)->first();
         $data['users'] = User::all();
-        $data['editData'] = Task::with(['users'])->where('user_id', $id)->first();
-
-	    // dd($data['editData']->toArray());        
+        
+	    //  dd($data['editData']->toArray());        
         return view('tasks.edit_tasks', $data);
     }
 
