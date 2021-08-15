@@ -10,8 +10,9 @@
                         <h3>Task Page</h3><br>
                         <a href="{{ route('tasks.view') }}" style="float: right;" class="btn btn-rounded btn-success mb-5">View Task</a>
                     </div>
-                <form method="post" action="{{ route('tasks.update', $task->id) }}" >
+                <form method="post" action="{{ route('tasks.update', $editData->id) }}" >
                     @csrf
+
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
@@ -20,19 +21,20 @@
                                     <select name="user_id"  required="" class="form-control">
                                         <option value="" selected="" disabled="">Select User</option>
                                         @foreach($users as $user)
-                                        <option value="{{ $user->id}}"  {{ ($editUser['0']->user_id == $user->id)? "selected": "" }}>{{ $user->name }}</option>
+                                        <option value="{{ $user->id}}"  {{ ($editData->user_id == $user->id)? "selected": "" }}>{{ $user->name }}</option>
+                                        
                                         @endforeach
                                     </select>                                    
                                 </div>
                             </div>  
                         </div>
                     </div>
-                    
+                   
                     <div class="row">
                         <div class="col-12">
                             <div class="form-check">
                                 <label> Task Status: </label><br>
-                                <input type="checkbox"  name="status" {{ ($task->status == 1)? 'checked' : '' }} class="form-check-input"> Done<br>                                                               
+                                <input type="checkbox"  name="status" {{ ($editData->status == 1)? 'checked' : '' }} class="form-check-input"> Done<br>                                                               
                             </div>
                         </div>
                     </div>
@@ -42,11 +44,12 @@
                             <div class="form-group">
                                 <h5>Deadline <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="date" name="deadline" value="{{$task->deadline}}" class="form-control" >
+                                    <input type="date" name="deadline" value="{{$editData->deadline}}" class="form-control" >
                                 </div>
                             </div> 
                         </div>
                     </div>
+
 
                     <div class="text-xs-right">
                         <input type="submit" value="Update" class="btn btn-rounded btn-info md-5">
